@@ -1,0 +1,47 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+  <div class="container">
+    <h1>Restaurants</h1>
+  </div>
+
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Restaurants list<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Add a restaurant", new_restaurant_path, class: "nav-link" %>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
+
+
+<div class="container">
+
+
+  <h1>Restaurants</h1>
+  <div class="row">
+
+    <% @restaurants.each do |restaurant|%>
+      <div class="col-3 m-1">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem; height: 20rem">
+          <h4 class="card-header"><%= restaurant.name  %></h4>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted"> <%= restaurant.category %> specialities</h6>
+            <p class="card-text">Address: <%= restaurant.address %></p>
+            <p class="card-text">Phone Number: <%= restaurant.phone_number %> </p>
+            <%= link_to "See details", restaurant_path(restaurant), class: "btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
